@@ -1,0 +1,169 @@
+/* General Styling */
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #ff9a9e 0%, #6dd5fa 100%);
+    font-family: 'Arial', sans-serif;
+    overflow: hidden;
+}
+
+/* Tombol Love */
+.love-button {
+    background-color: #ff6f61; /* Warna pink */
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.5rem;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.love-button:hover {
+    transform: translate(-50%, -50%) scale(1.1);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
+}
+
+.love-button:active {
+    transform: translate(-50%, -50%) scale(0.9);
+}
+
+/* Teks Valentine */
+.greeting {
+    text-align: center;
+    color: white;
+    opacity: 0;
+    transition: opacity 1s ease;
+    max-width: 600px;
+    padding: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.greeting h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.greeting p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+
+.show {
+    opacity: 1;
+}
+
+/* Balon Love */
+.balloon {
+    position: absolute;
+    bottom: -100px;
+    width: 50px;
+    height: 50px;
+    background-color: #ff6f61; /* Warna default */
+    clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+    animation: float 6s ease-in infinite;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0) rotate(0deg);
+    }
+    100% {
+        transform: translateY(-100vh) rotate(360deg);
+    }
+}
+
+/* Styling untuk foto */
+.photo-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    pointer-events: none;
+}
+
+.photo {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(100vh) rotate(20deg);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.left-photo-1 {
+    left: 10%;
+    animation: slideInLeft 1s ease forwards 0.5s;
+}
+
+.left-photo-2 {
+    left: 20%;
+    animation: slideInLeft 1s ease forwards 1s;
+}
+
+.right-photo-1 {
+    right: 10%;
+    animation: slideInRight 1s ease forwards 0.5s;
+}
+
+.right-photo-2 {
+    right: 20%;
+    animation: slideInRight 1s ease forwards 1s;
+}
+
+@keyframes slideInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-100%) rotate(-20deg);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0) rotate(0deg);
+    }
+}
+
+@keyframes slideInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(100%) rotate(20deg);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0) rotate(0deg);
+    }
+}
+
+/* Animasi untuk menghilangkan foto setelah 15 detik */
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+.fade-out {
+    animation: fadeOut 1s ease forwards;
+}
